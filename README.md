@@ -9,3 +9,4 @@ protoc -I. \
   --govalidators_out=./ \
   --grpc-gateway_out=logtostderr=true:./ \
   protocol/*.proto
+```

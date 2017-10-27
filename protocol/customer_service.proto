@@ -1,16 +1,21 @@
 syntax = "proto3";
 
-package proto;
+package protocol;
 import "github.com/mwitkow/go-proto-validators/validator.proto";
 import "google/api/annotations.proto";
 
 service CustomerService {
   rpc ListPerson(RequestType) returns (stream Person) {
-        option (google.api.http) = {
+    option (google.api.http) = {
       get: "/v1/customer_service/list_person"
     };
   };
-  rpc AddPerson(Person) returns (ResponseType) {};
+  rpc AddPerson(Person) returns (ResponseType) {
+    option (google.api.http) = {
+      post: "/v1/customer_service/add_person"
+      body: "*"
+    };
+  };
 }
 
 message ResponseType {

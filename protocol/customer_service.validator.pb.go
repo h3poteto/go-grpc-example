@@ -2,7 +2,7 @@
 // source: protocol/customer_service.proto
 
 /*
-Package proto is a generated protocol buffer package.
+Package protocol is a generated protocol buffer package.
 
 It is generated from these files:
 	protocol/customer_service.proto
@@ -12,17 +12,17 @@ It has these top-level messages:
 	RequestType
 	Person
 */
-package proto
+package protocol
 
 import fmt "fmt"
 import github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
-import proto1 "github.com/golang/protobuf/proto"
+import proto "github.com/golang/protobuf/proto"
 import math "math"
 import _ "github.com/mwitkow/go-proto-validators"
 import _ "google.golang.org/genproto/googleapis/api/annotations"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto1.Marshal
+var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
