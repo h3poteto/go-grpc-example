@@ -1,16 +1,17 @@
 package main
 
 import (
-	"golang.org/x/net/context"
 	"log"
 	"net"
 	"os"
 	"os/signal"
 	"sync"
 
+	"github.com/grpc-ecosystem/go-grpc-middleware"
+	"github.com/grpc-ecosystem/go-grpc-middleware/validator"
+	pb "github.com/h3poteto/go-grpc-example/protocol"
+	"golang.org/x/net/context"
 	"google.golang.org/grpc"
-
-	pb "github.com/h3poteto/go-grpc-example/server/protocol"
 )
 
 type customerService struct {
@@ -43,7 +44,14 @@ func main() {
 	if err != nil {
 		log.Fatalf("faild to listen: %v", err)
 	}
-	server := grpc.NewServer()
+	server := grpc.NewServer(
+		grpc.StreamInterceptor(grpc_middleware.ChainStreamServer(
+			grpc_validator.StreamServerInterceptor(),
+		)),
+		grpc.UnaryInterceptor(grpc_middleware.ChainUnaryServer(
+			grpc_validator.UnaryServerInterceptor(),
+		)),
+	)
 	pb.RegisterCustomerServiceServer(server, new(customerService))
 
 	go func() {
