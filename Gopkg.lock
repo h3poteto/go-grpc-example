@@ -2,15 +2,9 @@
 
 
 [[projects]]
-  name = "github.com/gogo/protobuf"
-  packages = ["proto","protoc-gen-gogo/descriptor"]
-  revision = "342cbe0a04158f6dcb03ca0079991a51a4248c02"
-  version = "v0.5"
-
-[[projects]]
   branch = "master"
   name = "github.com/golang/protobuf"
-  packages = ["jsonpb","proto","protoc-gen-go/descriptor","ptypes","ptypes/any","ptypes/duration","ptypes/struct","ptypes/timestamp"]
+  packages = ["jsonpb","proto","ptypes","ptypes/any","ptypes/duration","ptypes/struct","ptypes/timestamp"]
   revision = "1643683e1b54a9e88ad26d98f81400c8c9d9f4f9"
 
 [[projects]]
@@ -27,12 +21,6 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/mwitkow/go-proto-validators"
-  packages = ["."]
-  revision = "a55ca57f374a8846924b030f534d8b8211508cf0"
-
-[[projects]]
-  branch = "master"
   name = "golang.org/x/net"
   packages = ["context","http2","http2/hpack","idna","internal/timeseries","lex/httplex","trace"]
   revision = "7b572d500b0702f1ea30a47083ce2e1e5c61edba"
@@ -46,7 +34,7 @@
 [[projects]]
   branch = "master"
   name = "google.golang.org/genproto"
-  packages = ["googleapis/api/annotations","googleapis/rpc/status"]
+  packages = ["googleapis/rpc/status"]
   revision = "f676e0f3ac6395ff1a529ae59a6670878a8371a6"
 
 [[projects]]
@@ -58,6 +46,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "e3bca334ff4031e9e7b262e50b2e0a5769460610e528455e5316eef26db92078"
+  inputs-digest = "2e846a969e573c357a67c59fe809e63e359d7409c5b33db87c57fc6bdf92aa8e"
   solver-name = "gps-cdcl"
   solver-version = 1
