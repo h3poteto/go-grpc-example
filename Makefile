@@ -18,3 +18,5 @@ bundle: client/ruby/Gemfile
 clean:
 	rm -rf vendor
 	rm -rf client/ruby/vendor/bundle
+	rm protocol/*.go
+	rm client/ruby/lib/*.rb
