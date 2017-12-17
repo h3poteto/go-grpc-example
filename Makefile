@@ -2,7 +2,7 @@
 
 all: go-lib ruby-lib
 ruby-lib: bundle grpc-protobuf
-	cd client/ruby && protoc -I ../../protocol -I$(GOPATH)/src  -I$(GOPATH)/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis --proto_path=$(GOPATH)/src --proto_path=$(GOPATH)/src/github.com/gogo/protobuf/protobuf --proto_path=. --ruby_out=. --grpc_out=. --plugin=protoc-gen-grpc=$(shell cd client/ruby && bundle exec which grpc_tools_ruby_protoc_plugin) ../../protocol/*.proto
+	cd client/ruby && protoc -I ../../protocol -I$(GOPATH)/src  -I$(GOPATH)/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis --proto_path=$(GOPATH)/src --proto_path=$(GOPATH)/src/github.com/gogo/protobuf/protobuf --proto_path=. --ruby_out=lib --grpc_out=lib --plugin=protoc-gen-grpc=$(shell cd client/ruby && bundle exec which grpc_tools_ruby_protoc_plugin) ../../protocol/*.proto
 go-lib: dep grpc-protobuf
 	protoc -I. -I$(GOPATH)/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis --proto_path=$(GOPATH)/src --proto_path=$(GOPATH)/src/github.com/gogo/protobuf/protobuf --proto_path=. --go_out=plugins=grpc:./ --govalidators_out=./ --grpc-gateway_out=logtostderr=true:./ protocol/*.proto
 dep: Gopkg.toml
